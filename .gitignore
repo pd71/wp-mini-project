@@ -7,10 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies and Builds
 node_modules
+/frontend/node_modules # Explicitly ignoring frontend's node_modules, though the line above usually covers it
 dist
 dist-ssr
 *.local
+/frontend/build # Assuming a build step for the frontend might create a 'build' folder
 
 # Editor directories and files
 .vscode/*
@@ -23,4 +26,6 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment Variables and Sensitive Configs
 .env
+/backend/config/db.js # CRITICAL: Assuming this file contains sensitive database connection strings/credentials. If it does, you MUST ignore it.

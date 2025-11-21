@@ -1,3 +1,5 @@
+const NotesNotFound = () => null;
+export default NotesNotFound;
 import { NotebookIcon } from "lucide-react";
 import { Link } from "react-router";
 
@@ -16,5 +18,6 @@ const NotesNotFound = () => {
       </Link>
     </div>
   );
-};
+const NotesNotFound = () => null;
+export default NotesNotFound;
 export default NotesNotFound;
