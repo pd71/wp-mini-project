@@ -4,13 +4,14 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { connectDB } from "./config/db.js";   // CORRECT PATH
+import { connectDB } from "./config/db.js";   // MongoDB connection
 import songsRouter from "./routes/songs.js";
 import recommendationsRouter from "./routes/recommendations.js";
 
 dotenv.config();
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -21,7 +22,7 @@ connectDB();
 app.use("/api/music", songsRouter);
 app.use("/api/recommendations", recommendationsRouter);
 
-// Serve React frontend
+// Serve frontend from build folder
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -31,5 +32,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../../frontend/build", "index.html"));
 });
 
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
