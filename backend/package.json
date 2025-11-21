@@ -2,17 +2,17 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "src/server.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "heroku-postbuild": "cd ../frontend && npm install && npm run build"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "node-fetch": "^3.3.2",
